@@ -1,0 +1,101 @@
+<h2 mat-dialog-title>{{ action }} Employee</h2>
+<mat-dialog-content>
+    <form [formGroup]="formEmployee">
+        <mat-grid-list cols="1" rowHeight="80px">
+
+            <mat-grid-tile>
+                <h2>Personal Information</h2>
+            </mat-grid-tile>
+
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput autocomplete="off" formControlName="firstName">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="margin: 0 15px;">
+                    <mat-label>Middle Name</mat-label>
+                    <input matInput autocomplete="off" formControlName="middleName">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput autocomplete="off" formControlName="lastName">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+
+                <mat-form-field appearance="outline" style="width: 20em">
+                    <mat-label>Contact</mat-label>
+                    <input type="number" matInput autocomplete="off" formControlName="contact">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="margin: 0 15px; width: 20em">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" autocomplete="off" formControlName="dateOfBirth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <h2>Employee Address</h2>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>House Number</mat-label>
+                    <input matInput autocomplete="off" formControlName="houseNumber">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline"  style="margin: 0 15px;">
+                    <mat-label>Street</mat-label>
+                    <input matInput autocomplete="off" formControlName="street">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Village</mat-label>
+                    <input matInput autocomplete="off" formControlName="village">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Baranggay</mat-label>
+                    <input matInput autocomplete="off" formControlName="barangay">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="margin: 0 15px;">
+                    <mat-label>Town</mat-label>
+                    <input matInput autocomplete="off" formControlName="town">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input matInput autocomplete="off" formControlName="city">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" style="width: 27em">
+                    <mat-label>Province</mat-label>
+                    <input matInput autocomplete="off" formControlName="province">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="margin: 0 15px;">
+                    <mat-label>Zip Code</mat-label>
+                    <input matInput autocomplete="off" formControlName="zipCode">
+                </mat-form-field>
+            </mat-grid-tile>
+            
+        </mat-grid-list>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="formEmployee.invalid" (click)="addEditEmployee()">{{actionButton}}</button>
+</mat-dialog-actions>
